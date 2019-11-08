@@ -105,7 +105,7 @@ $tot_del_after = scalar(@del_split)-1;
 
 ##############################
 # Write to annotation XML file:
-$save_path = $LM_HOME . "submittedAnnotationsEdited";
+$save_path = $LM_HOME . "submittedAnnotations";
 unless(-d "$save_path") {
     mkdir "$save_path" or die;
 }
