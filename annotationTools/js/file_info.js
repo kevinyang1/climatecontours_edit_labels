@@ -17,6 +17,7 @@ function file_info() {
     this.page_in_use = 0; // Describes if we already see an image.
     this.dir_name = null;
     this.im_name = null;
+    this.xml_name = null;
     this.collection = 'LabelMe';
     this.mode = 'i'; //initialize to picture mode
     this.hitId = null;
@@ -82,6 +83,9 @@ function file_info() {
                         this.im_name = this.im_name + '.jpg';
                     }
 					imgName = this.im_name;
+                }
+                if (par_field == 'xml') {
+                    this.xml_name = par_value;
                 }
                 if(par_field=='hitId') {
                     this.hitId = par_value;
@@ -282,7 +286,7 @@ function file_info() {
     
     /** Gets annotation path */
     this.GetAnnotationPath = function () {
-        if((this.mode=='i') || (this.mode=='c') || (this.mode=='f') || (this.mode=='im') || (this.mode=='mt')) return 'Annotations/' + this.dir_name + '/' + this.im_name.substr(0,this.im_name.length-4) + '.xml';
+        if((this.mode=='i') || (this.mode=='c') || (this.mode=='f') || (this.mode=='im') || (this.mode=='mt')) return 'Annotations/' + this.dir_name + '/' + this.xml_name;
     };
     
     /** Gets full image name */
@@ -317,7 +321,8 @@ function file_info() {
     /** Changes current URL to include collection, directory, and image
     name information.  Returns false. */
     this.SetURL = function (url) {
-        this.FetchImage();
+        this.FetchXML();
+        console.log(this.im_name);
 
 	// Get base LabelMe URL:
         var idx = url.indexOf('?');
@@ -325,18 +330,43 @@ function file_info() {
             url = url.substring(0,idx);
         }
         
-        // Include username in URL:
-        var extra_field = '';
-        if(username != 'anonymous') extra_field = '&username=' + username;
-        
-        if(this.mode=='i') window.location = url + '?collection=' + this.collection + '&mode=' + this.mode + '&folder=' + this.dir_name + '&image=' + this.im_name + extra_field;
-        else if(this.mode=='im') window.location = url + '?collection=' + this.collection + '&mode=' + this.mode + '&folder=' + this.dir_name + '&image=' + this.im_name + extra_field;
-        else if(this.mode=='mt') window.location = url + '?collection=' + this.collection + '&mode=' + this.mode + '&folder=' + this.dir_name + '&image=' + this.im_name + extra_field;
-        else if(this.mode=='c') window.location = url + '?mode=' + this.mode + '&username=' + username + '&collection=' + this.collection + '&folder=' + this.dir_name + '&image=' + this.im_name + extra_field;
-        else if(this.mode=='f') window.location = url + '?mode=' + this.mode + '&folder=' + this.dir_name + '&image=' + this.im_name + extra_field;
+        window.location = url + '?collection=' + this.collection + '&mode=' + this.mode + '&folder=tmq' + '&image=' + this.im_name + '&xml=' + this.xml_name;
         return false;
     };
-    
+
+    this.FetchXML = function () {
+        let url = 'annotationTools/perl/fetch_xml.cgi';
+        let im_req;
+        // branch for native XMLHttpRequest object
+        if (window.XMLHttpRequest) {
+            im_req = new XMLHttpRequest();
+            im_req.open("GET", url, false);
+            im_req.send('');
+        }
+        else if (window.ActiveXObject) {
+            im_req = new ActiveXObject("Microsoft.XMLHTTP");
+            if (im_req) {
+                im_req.open("GET", url, false);
+                im_req.send('');
+            }
+        }
+        if(im_req.status==200) {
+            this.xml_name = im_req.responseXML.getElementsByTagName("file")[0].firstChild.nodeValue;
+            console.log(this.xml_name);
+            this.im_name = XmlToJpgFilename(this.xml_name);
+			imgName = this.im_name;
+
+            tc_count = 0;
+            ar_count = 0;
+            tc_array = [];
+            ar_array = [];
+            toggle_counter = 0;
+        }
+        else {
+            alert('Fatal: there are problems with fetch_xml.cgi');
+        }
+    }
+
     /** Fetch next image. */
     this.FetchImage = function () {
         var url = 'annotationTools/perl/fetch_image.cgi?mode=' + this.mode + '&username=' + username + '&collection=' + this.collection.toLowerCase() + '&folder=' + this.dir_name + '&image=' + this.im_name + '&counter=' + img_counter;

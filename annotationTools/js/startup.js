@@ -28,44 +28,23 @@ function StartupLabelMe() {
     // function fetches a new image and sets the URL to reflect the 
     // fetched image.
     if(!main_media.GetFileInfo().ParseURL()) return;
+    console.log("we are here")
 
-    if(video_mode) {
-      $('#generic_buttons').remove();
-      $.getScript("annotationTools/js/video.js", function(){
-        main_media = new video('videoplayer');
-        main_media.GetFileInfo().ParseURL();
-        console.log("Video mode...");
-        
-        function main_media_onload_helper(){
-          var anno_file = main_media.GetFileInfo().GetFullName();
-          anno_file = 'VLMAnnotations/' + anno_file + '.xml' + '?' + Math.random();
-          ReadXML(anno_file,LoadAnnotationSuccess,LoadAnnotation404);
-        }
-        main_media.GetNewVideo(main_media_onload_helper);
-      });
-    }
-    else if (threed_mode){
-      // 3D Code Starts here
-    }
-    else {
       // This function gets run after image is loaded:
-      function main_media_onload_helper() {
-          // Set the image dimensions:
-          console.log('Imageloaded')
-          main_media.SetImageDimensions();
-              
-          // Read the XML annotation file:
-          var anno_file = main_media.GetFileInfo().GetFullName();
-          anno_file = 'Annotations/' + anno_file.substr(0,anno_file.length-4) + '.xml' + '?' + Math.random();
-          ReadXML(anno_file,LoadAnnotationSuccess,LoadAnnotation404);
-          main_media.GetFileInfo().PreFetchImage();
+    function main_media_onload_helper() {
+      // Set the image dimensions:
+      console.log('Imageloaded')
+      main_media.SetImageDimensions();
 
-          $("#imcanvas").show();
-      };
+      // Read the XML annotation file:
+      var anno_file = main_media.GetFileInfo().GetAnnotationPath();
+      ReadXML(anno_file, LoadAnnotationSuccess, LoadAnnotation404);
+      main_media.GetFileInfo().PreFetchImage();
 
-      // Get the image:
-      main_media.GetNewImage(main_media_onload_helper);
+      $("#imcanvas").show();
     }
+    // Get the image:
+    main_media.GetNewImage(main_media_onload_helper);
   }
   else {
     // Invalid browser, so display error page.
@@ -94,8 +73,8 @@ function LoadNewMedia(){
 	       main_media.SetImageDimensions();
 
 	      // Read the XML annotation file:
-	      var anno_file = main_media.GetFileInfo().GetFullName();
-	      anno_file = 'Annotations/' + anno_file.substr(0,anno_file.length-4) + '.xml' + '?' + Math.random();
+	      //var anno_file = main_media.GetFileInfo().GetFullName();
+          let anno_file = main_media.GetFileInfo.GetAnnotationPath();
 	      ReadXML(anno_file,LoadAnnotationSuccess,LoadAnnotation404);
 	      main_media.Zoom('fitted');
 	      main_media.GetFileInfo().PreFetchImage();

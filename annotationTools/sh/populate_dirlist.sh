@@ -24,26 +24,21 @@
 
 # Pointer to Images/ and DirLists/ directories:
 LM_HOME="/var/www/html/climatecontours_gold/"
-HOMEIMAGES="${LM_HOME}Images"
+HOMEANNOTATIONS="${LM_HOME}Annotations"
 HOMEDIRLIST="${LM_HOME}annotationCache/DirLists"
-HOMEVIDEOS="${LM_HOME}VLMFrame"
 
 # Inputs:
 dirlist=$1
 folder=$2
-videodirlist='labelmevideo.txt'
 # Handle empty input argument cases:
 if [ "$dirlist" == "" ]; then
-    dirlist='labelme.txt';
-    
+    dirlist='xmls.txt';
 fi
 
 if [ "$folder" == "" ]; then
-   ImageDir=$HOMEIMAGES;
-   VideoDir=$HOMEVIDEOS;
+   ImageDir=$HOMEANNOTATIONS;
 else
-   ImageDir="$HOMEIMAGES/$folder";
-   VideoDir="$HOMEVIDEOS/$folder";
+   ImageDir="$HOMEANNOTATIONS/$folder";
 fi
 
 # adapted from https://stackoverflow.com/questions/3685970/check-if-a-bash-array-contains-a-value
@@ -57,38 +52,20 @@ containsElement () {
 # below setting only generates labels for the TMQ channel
 toggle_arr=("tmq")
 
-
 # Populate dirlist:
 find $ImageDir | sort -R | while read i; do
-    if [[ $i =~ ^.*\.jpg$ ]]; then
+    if [[ $i =~ ^.*\.xml$ ]]; then
 #	echo $i
-		dname=$(dirname $i | sed -e s=$HOMEIMAGES/==);
+		dname=$(dirname $i | sed -e s=$HOMEANNOTATIONS/==);
 		iname=$(basename $i);
 
         contains=$(containsElement "$dname" "${toggle_arr[@]}");
         echo $contains
 		if [[ $contains -eq 0 ]]; then
-
             echo "$dname,$iname";
-            echo "$dname,$iname" >> $HOMEDIRLIST/$dirlist;
+            echo "$iname" >> $HOMEDIRLIST/$dirlist;
 
         fi
     fi
 done
-
-# Populate dirlist:
-ls $VideoDir | while read i; do
-	idname=$VideoDir$i;
-	ls $idname | while read j; do
-		dirn=$idname/$j;
-		dname=$i/$j;
-		ls $dirn | while read na; do
-			videoname=$(basename $na);
-			echo "$dname,$videoname";
-			echo "$dname,$videoname" >> $HOMEDIRLIST/$videodirlist;
-		done
-	done
-done
-
-
 

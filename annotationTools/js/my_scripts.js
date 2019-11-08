@@ -150,7 +150,7 @@ function ShowNextImage() {
   // Get a new image and reset URL to reflect new image:
   if (video_mode) main_media.GetFileInfo().SetURL(document.URL);
   else {
-    main_media.GetFileInfo().FetchImage();
+    main_media.GetFileInfo().FetchXML();
     LoadNewMedia();
   }
 }
@@ -402,5 +402,14 @@ function incrementEvent(name, arr, counter) {
   } else{
     return name + counter;
   }
+}
+
+
+// assumes xml_filename of form data-year-month-date-timestep-run||id.xml;
+function XmlToJpgFilename(xml_filename) {
+  let xml_split = xml_filename.split('-');
+  let last_group = xml_split[xml_split.length - 1];
+  xml_split[xml_split.length - 1] = last_group.substring(0, 1);
+  return xml_split.join('-') + '.jpg';
 }
 
