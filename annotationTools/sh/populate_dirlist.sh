@@ -23,7 +23,7 @@
 # folder - Sub-folder under root folder
 
 # Pointer to Images/ and DirLists/ directories:
-LM_HOME="/var/www/html/climatecontours_edit_labels/
+LM_HOME="/var/www/html/climatecontours_edit_labels/"
 HOMEANNOTATIONS="${LM_HOME}Annotations"
 HOMEDIRLIST="${LM_HOME}annotationCache/DirLists"
 
