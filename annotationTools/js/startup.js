@@ -74,7 +74,7 @@ function LoadNewMedia(){
 
 	      // Read the XML annotation file:
 	      //var anno_file = main_media.GetFileInfo().GetFullName();
-          let anno_file = main_media.GetFileInfo.GetAnnotationPath();
+          let anno_file = main_media.GetFileInfo().GetAnnotationPath();
 	      ReadXML(anno_file,LoadAnnotationSuccess,LoadAnnotation404);
 	      main_media.Zoom('fitted');
 	      main_media.GetFileInfo().PreFetchImage();
