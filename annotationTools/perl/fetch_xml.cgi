@@ -18,26 +18,36 @@ if(!open(FP,$fname)) {
 return;
 }
 
+
+# store in memory
+my @LINES = <FP>;
+close(FP);
+
+# get the number of lines
 open(NUMLINES,"wc -l $fname |");
 my $numlines = <NUMLINES>;
 ($numlines,my $bar) = split(" DirLists",$numlines);
 close(NUMLINES);
 
-# get a random xml
-my $line = int(rand($numlines))+1;
+# open/create a new file to store the modified dirList
+open FH, '>', "$fname.temp";
 
-for(my $i=1; $i < $line; $i++) {
-my $garbage = readline(FP);
+# get a random xml
+my $line = int(rand($numlines));
+my $counter = 0;
+
+foreach my $LINE ( @LINES ) {
+  if ($counter == $line) {
+    $im_file = $LINE;
+    $im_file =~ tr/"\n"//d; # remove trailing newline
+  } else {
+    print FH $LINE;
+  }
+  $counter += 1;
 }
 
-my $fileinfo = readline(FP);
-# TODO: change the way that this processes here
-#($im_dir,$im_file) = split(",",$fileinfo);
-$im_file = $fileinfo;
-$im_file =~ tr/"\n"//d; # remove trailing newline
-
-close(FP);
-
+unlink $fname;
+rename "$fname.temp", $fname;
 # Send back data:
 print "Content-type: text/xml\n\n" ;
 print "<out><file>$im_file</file></out>";
