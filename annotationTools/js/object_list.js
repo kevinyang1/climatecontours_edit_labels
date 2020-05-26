@@ -145,8 +145,10 @@ function RenderObjectList() {
   html_str += '<a class="channels_list" id="iwv" href="javascript:GoesToChannels('+3+');">Integrated Water Vapor</a><br/><br/>';
   //html_str += '<a class="channels_list" id="iwv850" href="javascript:GoesToChannels('+4+');">Integrated Water Vapor &amp; Wind at 850mbar</a><br/><br/>';
   //html_str += '<a class="channels_list" id="iwv101" href="javascript:GoesToChannels('+5+');">Integrated Water Vapor &amp; Wind at Surface Level</a><br/><br/>';
+  html_str += '<a class="channels_list" id="psl" href="javascript:GoesToChannels('+7+');">Sea Level Pressure</a><br/><br/>';
   html_str += '<a class="channels_list" id="vorticity_psl" href="javascript:GoesToChannels('+6+');">Vorticity &amp; Sea Level Pressure</a><br/><br/>';
   //html_str += '<a class="channels_list" id="vorticity_psl_ivt" href="javascript:GoesToChannels('+7+');">Vorticity &amp; Sea Level Pressure &amp; IVT</a><br/><br/>';
+  
   html_str += '</p></div>';
   
   // Attach annotation list to 'anno_anchor' DIV element:
