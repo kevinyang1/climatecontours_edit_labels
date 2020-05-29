@@ -33,7 +33,8 @@ close(NUMLINES);
 open FH, '>', "$fname.temp";
 
 # get a random xml
-my $line = int(rand($numlines));
+#my $line = int(rand($numlines));
+my $line = 0;
 my $counter = 0;
 
 foreach my $LINE ( @LINES ) {
