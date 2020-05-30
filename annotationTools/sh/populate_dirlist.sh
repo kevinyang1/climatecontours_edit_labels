@@ -53,7 +53,7 @@ containsElement () {
 toggle_arr=("tmq")
 
 # Populate dirlist:
-find $ImageDir | sort -R | while read i; do
+find $ImageDir | sort | while read i; do
     if [[ $i =~ ^.*\.xml$ ]]; then
 #	echo $i
 		dname=$(dirname $i | sed -e s=$HOMEANNOTATIONS/==);
