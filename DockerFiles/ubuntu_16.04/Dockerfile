@@ -27,10 +27,15 @@ COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY apache2.conf /etc/apache2/apache2.conf
 
 #Clone LabelMe,move it and make
-RUN git clone https://github.com/kyang1337/LabelMeAnnotationTool.git
-RUN mv ./LabelMeAnnotationTool/ /var/www/html/LabelMeAnnotationTool/
-RUN cd /var/www/html/LabelMeAnnotationTool/ && git pull origin master && make
-RUN chown -R www-data:www-data /var/www/html
+WORKDIR /var/www/html
+RUN git clone -b inference_qa --single-branch https://github.com/kyang1337/climatecontours_edit_labels
+RUN cd /var/www/html/climatecontours_edit_labels/ && git pull origin inference_qa && make
+RUN mkdir /var/www/html/climatecontours_edit_labels/submittedAnnotations
+RUN chown -R www-data:www-data /var/www/html && chmod -R g+w /var/www/html/climatecontours_edit_labels
+#RUN git clone https://github.com/kyang1337/LabelMeAnnotationTool.git
+#RUN mv ./LabelMeAnnotationTool/ /var/www/html/LabelMeAnnotationTool/
+#RUN cd /var/www/html/LabelMeAnnotationTool/ && git pull origin master && make
+#RUN chown -R www-data:www-data /var/www/html
 
 RUN cd /var/www/html/LabelMeAnnotationTool/annotationTools/sh/ && ./populate_dirlist.sh
 # port binding

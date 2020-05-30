@@ -35,7 +35,10 @@ function RenderObjectList() {
   var img_name = main_media.GetFileInfo().im_name;
   var regex = /[0-9]{4}.?[0-9]{1,2}.?[0-9]{1,2}/g;
   var date_found = img_name.match(regex);
-  html_str += '<b style="font-size:18px;line-height:120%">Date: '+date_found[0]+ '</b><br/><br/>';
+
+  var time_regex = /[0-9]{2}.?[0-9]{1}\./g;
+  var time_str = img_name.match(time_regex)[0];
+  html_str += '<b style="font-size:18px;line-height:120%">Date: '+date_found[0]+ " Time: " +time_str[1] + '</b><br/><br/>';
 
   // Create DIV
   if (showImgName) {html_str += '<p><b>Image name: '+ imgName +'</b></p>';}
