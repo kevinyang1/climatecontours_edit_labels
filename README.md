@@ -109,6 +109,14 @@ and folders in the "Annotations" folder have write permissions. Also,
 
   This will create a list of all images inside the "./Images" folder,
   and will appear inside the file "./annotationCache/DirLists/labelme.txt".
+  
+  #### LOADING MULTIPLE IMAGES PER SEGMENTATION TASK
+  
+  Following this example setup of the tool:
+  
+  *paste image of here tool*
+  
+  * See right hand sidebar, multiple links that show users images of pls, ivt, ...
 
   You can then label images inside the collection using the following URL:
 
