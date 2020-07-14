@@ -1,14 +1,20 @@
-[LabelMe](http://labelme.csail.mit.edu) annotation tool source code
+[ClimateContours](https://gmd.copernicus.org/preprints/gmd-2020-72/) ClimateContours tool, based on
+[LabelMe](http://labelme.csail.mit.edu) source code
 ===========
 
-Here you will find the source code to install the LabelMe annotation
-tool on your server. LabelMe is an annotation tool writen in
+This readme will instruct you to deploy ClimateContours with your own dataset,
+and introduce you to some preliminary visualization and processing methods for the
+label data you may generate.
+
+ClimateContours is an annotation tool writen in
 Javascript for online image labeling. The advantage with respect to
 traditional image annotation tools is that you can access the tool
 from anywhere and people can help you to annotate your images without
 having to install or copy a large dataset onto their computers.
 
 ### CITATION:
+   
+   This readme, and the ClimateContours tool credits the open source work of
 
    B. C. Russell, A. Torralba, K. P. Murphy, W. T. Freeman.
    LabelMe: a Database and Web-based Tool for Image Annotation.
@@ -16,23 +22,12 @@ having to install or copy a large dataset onto their computers.
    [Project page](http://labelme.csail.mit.edu)
 
 
-### DOWNLOAD:
-
-You can download a [zip file of the source code](https://github.com/CSAILVision/LabelMeAnnotationTool/archive/master.zip) directly.  
-
-Alternatively, you can clone it from GitHub as follows:
-
-``` sh
-$ git clone https://github.com/CSAILVision/LabelMeAnnotationTool.git
-```
-
 
 ### CONTENTS:
 
 * Images - This is where your images go.
 * Annotations - This is where the annotations are collected.
-* Masks - This is where the segmentation masks are collected (scribble mode).
-* Scribbles - This is where the scribbles are collected (scribble mode).
+* visualization - Pythonic scripts for working with xml label data. See internal readme.
 * tool.html - Main web page for LabelMe annotation tool.
 * annotationTools - Directory with source code.
 * annotationCache - Location of temporary files.
@@ -40,7 +35,7 @@ $ git clone https://github.com/CSAILVision/LabelMeAnnotationTool.git
 * DockerFiles - Directory with Docker files for installation via Docker.
 
 
-### QUICK START INSTRUCTIONS:
+### QUICK START (LOCAL INSTANCE) INSTRUCTIONS:
 
 1. Put LabelMe annotation tool code on web server (see web server
    configuration requirements below).
@@ -71,7 +66,7 @@ $ git clone https://github.com/CSAILVision/LabelMeAnnotationTool.git
 6. Voila!  Your annotations will appear inside of the "Annotations" folder.
 
 
-### WEB SERVER REQUIREMENTS:
+### WEB SERVER START INSTRUCTIONS:
 
 You will need the following to set up the LabelMe tool on your web
 server:
@@ -102,42 +97,7 @@ Make sure that your images have read permissions on your web server
 and folders in the "Annotations" folder have write permissions. Also,
 "annotationCache/TmpAnnotations" needs to have write permissions.
 
-
-### FEATURES OF THE ANNOTATION TOOL:
-
-* The following are URL variables you can pass to the annotation tool:
-
-   * mode=im - Only show the image and drawing canvas (do not show anything outside of the image.
-   * mode=mt - Mechanical Turk mode.
-   * mode=f - Pressing "next image" button goes to next image in the folder.
-   * mode=i - Pressing "next image" button goes to random image in the default LabelMe collection.
-   * mode=c - Go to next image in the collection (set via the dirlist).
-   * username=johndoe - Sets username for labeling session.
-   * collection=LabelMe - Uses the default LabelMe collection list. See below for setting up a new collection list.
-   * folder=MyLabelMeFolder - LabelMe folder where the image lives.
-   * image=image.jpg - LabelMe image to annotate.
-   * objects=car,person,building - When popup bubble appears asking the user for the object name, the user selects one of these objects appearing as a drop-down list.
-   * scribble=false - Turns off scribble mode.
-   * objlist=visible - This controls whether the object list on the right side is visible or not. Use "objlist=hidden" to make it hidden.
-   * actions=n - Control what actions the user is allowed to do. To set the desired actions, use any combination of the letters below. For example, to allow renaming, modify control points, and delete actions, then set "actions=rmd". By default, "actions=n". The following are possible actions:
-      * n - create and edit new polygons
-      * r - rename existing objects
-      * m - modify control points on existing objects
-      * d - delete existing objects
-      * a - allow all actions
-      * v - view polygons only (do not allow any editing)
-   * viewobj=e - Control which objects the user sees. Use one of the following possible options below. By default, "viewobj=e". Note that for deleted objects, these will be shown in gray and the object name in the object list will be italicized.
-      * e - view new and previously labeled objects
-      * n - view new objects only
-      * d - view new and deleted objects
-      * a - view all objects (new, existing, deleted)
-
-   The following are for Mechanical Turk mode:
-
-   * mt_sandbox=true - Use Mechanical Turk sandbox mode. This mode is used for debugging on Mechanical Turk. You may want to start with this variable set to make sure everything works.
-   * N=5 - The worker is required to label at least 5 polygons. Use N=inf to allow the worker to label as many as they want.
-   * mt_intro=http://yourpage.com - You may customize the instructions that the worker sees. By default, the following [instructions](http://labelme2.csail.mit.edu/Release3.0/annotationTools/html/mt_instructions.html) are given to the workers.
-   * mt_instructions=Place your instructions here - You may customize the one-line instructions that the worker sees at the top of the labeling task. By default, the instructions are: Please label as many objects as you want in this image.
+### LOADING DATA AND TOOL FUNCTIONALITY:
 
 * You can create a collection of images to label by running the
   following on the command line:
@@ -177,8 +137,45 @@ and folders in the "Annotations" folder have write permissions. Also,
   "./annotationCache/Logs/logfile.txt".  Make sure that this file has
   write permissions.
 
+### ADVANCED FEATURES OF THE ANNOTATION TOOL:
 
-### CODE API
+* The following are URL variables you can pass to the annotation tool:
+
+   * mode=im - Only show the image and drawing canvas (do not show anything outside of the image.
+   * mode=mt - Mechanical Turk mode.
+   * mode=f - Pressing "next image" button goes to next image in the folder.
+   * mode=i - Pressing "next image" button goes to random image in the default LabelMe collection.
+   * mode=c - Go to next image in the collection (set via the dirlist).
+   * username=johndoe - Sets username for labeling session.
+   * collection=LabelMe - Uses the default LabelMe collection list. See below for setting up a new collection list.
+   * folder=MyLabelMeFolder - LabelMe folder where the image lives.
+   * image=image.jpg - LabelMe image to annotate.
+   * objects=car,person,building - When popup bubble appears asking the user for the object name, the user selects one of these objects appearing as a drop-down list.
+   * scribble=false - Turns off scribble mode.
+   * objlist=visible - This controls whether the object list on the right side is visible or not. Use "objlist=hidden" to make it hidden.
+   * actions=n - Control what actions the user is allowed to do. To set the desired actions, use any combination of the letters below. For example, to allow renaming, modify control points, and delete actions, then set "actions=rmd". By default, "actions=n". The following are possible actions:
+      * n - create and edit new polygons
+      * r - rename existing objects
+      * m - modify control points on existing objects
+      * d - delete existing objects
+      * a - allow all actions
+      * v - view polygons only (do not allow any editing)
+   * viewobj=e - Control which objects the user sees. Use one of the following possible options below. By default, "viewobj=e". Note that for deleted objects, these will be shown in gray and the object name in the object list will be italicized.
+      * e - view new and previously labeled objects
+      * n - view new objects only
+      * d - view new and deleted objects
+      * a - view all objects (new, existing, deleted)
+
+   The following are for Mechanical Turk mode:
+
+   * mt_sandbox=true - Use Mechanical Turk sandbox mode. This mode is used for debugging on Mechanical Turk. You may want to start with this variable set to make sure everything works.
+   * N=5 - The worker is required to label at least 5 polygons. Use N=inf to allow the worker to label as many as they want.
+   * mt_intro=http://yourpage.com - You may customize the instructions that the worker sees. By default, the following [instructions](http://labelme2.csail.mit.edu/Release3.0/annotationTools/html/mt_instructions.html) are given to the workers.
+   * mt_instructions=Place your instructions here - You may customize the one-line instructions that the worker sees at the top of the labeling task. By default, the instructions are: Please label as many objects as you want in this image.
+
+
+
+### CODE API:
 
 The following is a brief overview of the source code.  Please see the
 [Javascript code API](https://cdn.rawgit.com/CSAILVision/LabelMeAnnotationTool/master/annotationTools/js/api/index.html)
@@ -206,4 +203,3 @@ definitions.
 
 ---- 
 
-(c) 2015, MIT Computer Science and Artificial Intelligence Laboratory
