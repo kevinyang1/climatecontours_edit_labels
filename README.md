@@ -27,7 +27,7 @@ having to install or copy a large dataset onto their computers.
 
 * Images - This is where your images go.
 * Annotations - This is where the annotations are collected.
-* visualization - Pythonic scripts for working with xml label data.
+* visualization - Pythonic scripts for working with xml label data. See internal readme.
 * tool.html - Main web page for LabelMe annotation tool.
 * annotationTools - Directory with source code.
 * annotationCache - Location of temporary files.
@@ -66,7 +66,7 @@ having to install or copy a large dataset onto their computers.
 6. Voila!  Your annotations will appear inside of the "Annotations" folder.
 
 
-### WEB SERVER START INSTRUCTIONS
+### WEB SERVER START INSTRUCTIONS:
 
 You will need the following to set up the LabelMe tool on your web
 server:
@@ -175,7 +175,7 @@ and folders in the "Annotations" folder have write permissions. Also,
 
 
 
-### CODE API
+### CODE API:
 
 The following is a brief overview of the source code.  Please see the
 [Javascript code API](https://cdn.rawgit.com/CSAILVision/LabelMeAnnotationTool/master/annotationTools/js/api/index.html)
