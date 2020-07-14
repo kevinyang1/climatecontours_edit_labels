@@ -1,3 +1,4 @@
+[ClimateContours](https://gmd.copernicus.org/preprints/gmd-2020-72/) ClimateContours tool, based on
 [LabelMe](http://labelme.csail.mit.edu) annotation tool source code
 ===========
 
@@ -9,22 +10,14 @@ from anywhere and people can help you to annotate your images without
 having to install or copy a large dataset onto their computers.
 
 ### CITATION:
+   
+   This readme, and the ClimateContours tool credits the open source work of
 
    B. C. Russell, A. Torralba, K. P. Murphy, W. T. Freeman.
    LabelMe: a Database and Web-based Tool for Image Annotation.
    International Journal of Computer Vision, 77(1-3):157-173, 2008. 
    [Project page](http://labelme.csail.mit.edu)
 
-
-### DOWNLOAD:
-
-You can download a [zip file of the source code](https://github.com/CSAILVision/LabelMeAnnotationTool/archive/master.zip) directly.  
-
-Alternatively, you can clone it from GitHub as follows:
-
-``` sh
-$ git clone https://github.com/CSAILVision/LabelMeAnnotationTool.git
-```
 
 
 ### CONTENTS:
@@ -206,4 +199,3 @@ definitions.
 
 ---- 
 
-(c) 2015, MIT Computer Science and Artificial Intelligence Laboratory
