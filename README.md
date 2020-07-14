@@ -27,7 +27,7 @@ having to install or copy a large dataset onto their computers.
 
 * Images - This is where your images go.
 * Annotations - This is where the annotations are collected.
-* visualization - Pythonic scripts for working with xml label data. See internal readme.
+* visualization - Pythonic scripts for generating jpg and xml data. **See internal README.md.**
 * tool.html - Main web page for LabelMe annotation tool.
 * annotationTools - Directory with source code.
 * annotationCache - Location of temporary files.
