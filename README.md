@@ -155,6 +155,8 @@ http://www.yourserver.edu/path/to/LabelMe/tool.html?collection=labelme&mode=i
 
 * The following are URL variables you can pass to the annotation tool:
 
+N.B. All `scribble`  functionality has been disabled do to backend instability
+   
    * mode=im - Only show the image and drawing canvas (do not show anything outside of the image.
    * mode=mt - Mechanical Turk mode.
    * mode=f - Pressing "next image" button goes to next image in the folder.
@@ -165,7 +167,6 @@ http://www.yourserver.edu/path/to/LabelMe/tool.html?collection=labelme&mode=i
    * folder=MyLabelMeFolder - LabelMe folder where the image lives.
    * image=image.jpg - LabelMe image to annotate.
    * objects=car,person,building - When popup bubble appears asking the user for the object name, the user selects one of these objects appearing as a drop-down list.
-   * scribble=false - Turns off scribble mode.
    * objlist=visible - This controls whether the object list on the right side is visible or not. Use "objlist=hidden" to make it hidden.
    * actions=n - Control what actions the user is allowed to do. To set the desired actions, use any combination of the letters below. For example, to allow renaming, modify control points, and delete actions, then set "actions=rmd". By default, "actions=n". The following are possible actions:
       * n - create and edit new polygons
