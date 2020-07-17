@@ -93,9 +93,11 @@ loaded as an "application/xhtml+xml" page (you can see this in
 Firefox by navigating to Tools->Page Info). If it is not, be sure
 that SSI are enabled (see above for enabling authconfig in Apache).
 
-Make sure that your images have read permissions on your web server
-and folders in the "Annotations" folder have write permissions. Also,
+Make sure that your **images have read permissions** on your web server
+and **folders in the "Annotations" folder have write permissions**. Also,
 "annotationCache/TmpAnnotations" needs to have write permissions.
+
+* Configure `annotationTools/perl/submit.cgi` to write images to the location of choice and set its ownership to www-data
 
 ### LOADING DATA AND TOOL FUNCTIONALITY:
 
@@ -106,27 +108,25 @@ and folders in the "Annotations" folder have write permissions. Also,
    $ cd ./annotationTools/sh/
    $ ./populate_dirlist.sh
    ```
-
   This will create a list of all images inside the "./Images" folder,
   and will appear inside the file "./annotationCache/DirLists/labelme.txt".
+
+* You can then label images inside the collection using the following URL
+http://www.yourserver.edu/path/to/LabelMe/tool.html?collection=labelme&mode=i
   
-  #### LOADING MULTIPLE IMAGES PER SEGMENTATION TASK
+### LOADING MULTIPLE IMAGES PER SEGMENTATION TASK
   
   Following this example setup of the tool:
   
   ![Channel Pane](visualization/channel_img.PNG)
   
-  See bottom of right hand sidebar: multiple links that show users images of pls, ivt, ...
+  See bottom of right hand sidebar: user can choose between IVT, Vorticity, IWV, PSL... view for the single labeling task
   
-  You will need to manually edit:
+  To achieve this for your own layers, manually edit:
   * `toggle_list` in `annotationTools/js/globals.js` 
   * Hard coded color bars stored in `Icons/`
   * Hard coded color bar references in `annotationTools/js/object_lists.js` func `GoesToChannels()`
   * Hard coded color bar references in `annotationTools/js/my_scripts.js` func `Toggle()`
-
-  You can then label images inside the collection using the following URL:
-
-   http://www.yourserver.edu/path/to/LabelMe/tool.html?collection=labelme&mode=i
 
   You can create a collection consisting of a particular folder by
   running the following from the command line:
