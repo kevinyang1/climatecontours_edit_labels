@@ -114,9 +114,15 @@ and folders in the "Annotations" folder have write permissions. Also,
   
   Following this example setup of the tool:
   
-  *paste image of here tool*
+  ![Channel Pane](visualization/channel_img.PNG)
   
-  * See right hand sidebar, multiple links that show users images of pls, ivt, ...
+  See bottom of right hand sidebar: multiple links that show users images of pls, ivt, ...
+  
+  You will need to manually edit:
+  * `toggle_list` in `annotationTools/js/globals.js` 
+  * Hard coded color bars stored in `Icons/`
+  * Hard coded color bar references in `annotationTools/js/object_lists.js` func `GoesToChannels()`
+  * Hard coded color bar references in `annotationTools/js/my_scripts.js` func `Toggle()`
 
   You can then label images inside the collection using the following URL:
 
