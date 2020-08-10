@@ -99,7 +99,7 @@ and **folders in the "Annotations" folder have write permissions**. Also,
 
 * Configure `annotationTools/perl/submit.cgi` to write images to the location of choice and set its ownership to www-data
 
-### LOADING DATA AND TOOL FUNCTIONALITY:
+### PRE-LOADING ANNOTATIONS:
 
 * You can create a collection of images to label by running the
   following on the command line:
