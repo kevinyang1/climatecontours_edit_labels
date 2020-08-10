@@ -58,7 +58,7 @@ having to install or copy a large dataset onto their computers.
 
 4. Point your web browser to the following URL: 
 
-   http://www.yourserver.edu/path/to/LabelMe/tool.html?collection=LabelMe&mode=f&folder=example_folder&image=img1.jpg
+  127.0.0.1/climatecontours_edit_labels/tool.html
 
 5. Label your image.  Press "show me another image" to go to the next
    image in the folder.
