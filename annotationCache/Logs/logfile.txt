@@ -223,3 +223,37 @@
 05-Jun-2012 16:40:16 127.0.0.1 *start_loading
 05-Jun-2012 16:40:16 127.0.0.1 *Browser_Information Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.53 Safari/536.5
 05-Jun-2012 16:40:16 127.0.0.1 *done_loading_Images/example_folder/img3.jpg
+10-Aug-2020 19:07:30 127.0.0.1 *Browser_Information Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+10-Aug-2020 19:07:30 127.0.0.1 *start_loading
+10-Aug-2020 19:07:34 127.0.0.1 *start_loading
+10-Aug-2020 19:07:34 127.0.0.1 *Browser_Information Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+10-Aug-2020 19:08:28 127.0.0.1 *Browser_Information Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+10-Aug-2020 19:08:28 127.0.0.1 *start_loading
+10-Aug-2020 19:08:34 127.0.0.1 *Browser_Information Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+10-Aug-2020 19:08:34 127.0.0.1 *start_loading
+10-Aug-2020 19:17:29 127.0.0.1 *Browser_Information Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+10-Aug-2020 19:17:29 127.0.0.1 *start_loading
+10-Aug-2020 19:18:30 127.0.0.1 *start_loading
+10-Aug-2020 19:18:30 127.0.0.1 *Browser_Information Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+10-Aug-2020 19:18:33 127.0.0.1 *Browser_Information Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+10-Aug-2020 19:18:33 127.0.0.1 *start_loading
+10-Aug-2020 22:06:22 127.0.0.1 *Browser_Information Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+10-Aug-2020 22:06:22 127.0.0.1 *start_loading
+10-Aug-2020 22:06:23 127.0.0.1 *Browser_Information Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+10-Aug-2020 22:06:23 127.0.0.1 *start_loading
+10-Aug-2020 22:06:23 127.0.0.1 *done_loading_Images/tmq/data-2000-01-01-01-1.jpg
+10-Aug-2020 22:13:36 127.0.0.1 *Opened_Edit_Popup
+10-Aug-2020 22:13:42 127.0.0.1 *Closed_Edit_Popup
+10-Aug-2020 22:13:42 tmq data-2000-01-01-01-1 14 14 127.0.0.1  tc2->tc2 0 anonymous cpts_modified 0 0
+10-Aug-2020 22:13:44 127.0.0.1 *Opened_Edit_Popup
+10-Aug-2020 22:13:50 127.0.0.1 *Closed_Edit_Popup
+10-Aug-2020 22:13:50 tmq data-2000-01-01-01-1 14 14 127.0.0.1  ar1->ar1 0 anonymous cpts_modified 0 0
+10-Aug-2020 22:14:29 127.0.0.1 *Opened_Edit_Popup
+10-Aug-2020 22:14:37 127.0.0.1 *Closed_Edit_Popup
+10-Aug-2020 22:14:37 tmq data-2000-01-01-03-1 18 18 127.0.0.1  ar1->ar1 0 anonymous cpts_modified 0 0
+10-Aug-2020 22:14:38 127.0.0.1 *Opened_Edit_Popup
+10-Aug-2020 22:14:39 127.0.0.1 *Deleting_object
+10-Aug-2020 22:14:40 127.0.0.1 *Closed_Edit_Popup
+10-Aug-2020 22:14:41 127.0.0.1 *start_polygon
+10-Aug-2020 22:14:47 127.0.0.1 *What_is_this_object_query
+10-Aug-2020 22:14:48 tmq data-2000-01-01-03-1 18 19 127.0.0.1  ar12 1 anonymous cpts_not_modified 0 1
