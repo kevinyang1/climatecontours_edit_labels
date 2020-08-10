@@ -63,7 +63,7 @@ having to install or copy a large dataset onto their computers.
 5. Label your image.  Press "show me another image" to go to the next
    image in the folder.
 
-6. Voila!  Your annotations will appear inside of the "Annotations" folder.
+6. Voila!  Your annotations will appear at `climatecontours_edit_labels\submittedAnnotations\tmq`. This target can be changed in `climatecontours_edit_labels\annotationTools\perl\submit.cgi`
 
 
 ### WEB SERVER START INSTRUCTIONS:
@@ -73,6 +73,9 @@ server:
 
 * **Run an Apache server (see special configuration instructions for
   [Ubuntu](UBUNTU_16_04.md) or [Windows](WINDOWS.md)).**
+  
+If you run into issues after the linked instructions above, please try:
+
 * Enable authconfig in Apache so that server side includes (SSI) will
   work. This will allow SVG drawing capabilities. This is the most
   common source of errors, so make sure this step is working.
@@ -97,12 +100,9 @@ Make sure that your **images have read permissions** on your web server
 and **folders in the "Annotations" folder have write permissions**. Also,
 "annotationCache/TmpAnnotations" needs to have write permissions.
 
-* Configure `annotationTools/perl/submit.cgi` to write images to the location of choice and set its ownership to www-data
+### PRE-LOADING ANNOTATIONS (For QA on existing annotations):
 
-### PRE-LOADING ANNOTATIONS:
-
-* You can create a collection of images to label by running the
-  following on the command line:
+* the script populate_dirlist.sh will inform the tool what xmls should be rendered alongside any given image. Any xml files at `climatecontours_edit_labels\Annotations\tmq\` will be detected and loaded with .jpg files with the exact same name in `climatecontours_edit_labels\Images\tmq`.
 
    ``` sh
    $ cd ./annotationTools/sh/
@@ -111,8 +111,8 @@ and **folders in the "Annotations" folder have write permissions**. Also,
   This will create a list of all images inside the "./Images" folder,
   and will appear inside the file "./annotationCache/DirLists/labelme.txt".
 
-* You can then label images inside the collection using the following URL
-http://127.0.0.1/climatecontours_edit_labels/tool.html
+* You can then adjust the labeling of these images at
+http://127.0.0.1/climatecontours_edit_labels/tool.html.
   
 ### LOADING MULTIPLE IMAGES PER SEGMENTATION TASK
   
