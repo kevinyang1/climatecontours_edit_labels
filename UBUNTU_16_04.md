@@ -1,4 +1,4 @@
-# UBUNTU 16.04 CONFIGURATION
+# UBUNTU 16.04, 18.04 CONFIGURATION
 
 1. Update and upgrade the Ubuntu distribution.
 
