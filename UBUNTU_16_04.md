@@ -36,7 +36,7 @@
 
     ``` sh
     sudo tee /etc/apache2/sites-available/000-default.conf <<EOL
-    <Directory "/var/www/html/LabelMeAnnotationTool">
+    <Directory "/var/www/html/climatecontours_edit_labels">
        Options Indexes FollowSymLinks MultiViews Includes ExecCGI
        AddHandler cgi-script .cgi
        AllowOverride All
@@ -53,13 +53,13 @@
     ``` sh
     git clone https://github.com/CSAILVision/LabelMeAnnotationTool.git
 
-    sudo mv ./LabelMeAnnotationTool/ /var/www/html/LabelMeAnnotationTool/
+    sudo mv ./climatecontours_edit_labels/ /var/www/html/climatecontours_edit_labels/
     ```
 
 1. Run the *Makefile*.
 
     ```
-    cd /var/www/html/LabelMeAnnotationTool/
+    cd /var/www/html/climatecontours_edit_labels/
 
     make
     ```
