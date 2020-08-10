@@ -37,8 +37,8 @@ having to install or copy a large dataset onto their computers.
 
 ### QUICK START (LOCAL INSTANCE) INSTRUCTIONS:
 
-1. Put LabelMe annotation tool code on web server (see web server
-   configuration requirements below).
+1. **Put LabelMe annotation tool code on web server (see web server
+   configuration requirements below).**
 
 2. On the command line run:
 
@@ -71,8 +71,8 @@ having to install or copy a large dataset onto their computers.
 You will need the following to set up the LabelMe tool on your web
 server:
 
-* Run an Apache server (see special configuration instructions for
-  [Ubuntu](UBUNTU.md) or [Windows](WINDOWS.md)).
+* **Run an Apache server (see special configuration instructions for
+  [Ubuntu](UBUNTU.md) or [Windows](WINDOWS.md)).**
 * Enable authconfig in Apache so that server side includes (SSI) will
   work. This will allow SVG drawing capabilities. This is the most
   common source of errors, so make sure this step is working.
@@ -112,7 +112,7 @@ and **folders in the "Annotations" folder have write permissions**. Also,
   and will appear inside the file "./annotationCache/DirLists/labelme.txt".
 
 * You can then label images inside the collection using the following URL
-http://www.yourserver.edu/path/to/LabelMe/tool.html?collection=labelme&mode=i
+http://127.0.0.1/climatecontours_edit_labels/tool.html
   
 ### LOADING MULTIPLE IMAGES PER SEGMENTATION TASK
   
@@ -140,7 +140,7 @@ http://www.yourserver.edu/path/to/LabelMe/tool.html?collection=labelme&mode=i
   "./annotationCache/DirLists/my_collection.txt".  You can then
   label images inside the collection using the following URL:
 
-   http://www.yourserver.edu/path/to/LabelMe/tool.html?collection=my_collection&mode=i
+   http://127.0.0.1/climatecontours_edit_labels/tool.html
 
 * You can change the layout of the annotation files for your
   collection by modifying the XML file template inside of
