@@ -72,7 +72,7 @@ You will need the following to set up the LabelMe tool on your web
 server:
 
 * **Run an Apache server (see special configuration instructions for
-  [Ubuntu](UBUNTU.md) or [Windows](WINDOWS.md)).**
+  [Ubuntu](UBUNTU_16_04.md) or [Windows](WINDOWS.md)).**
 * Enable authconfig in Apache so that server side includes (SSI) will
   work. This will allow SVG drawing capabilities. This is the most
   common source of errors, so make sure this step is working.
