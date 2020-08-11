@@ -121,7 +121,7 @@ function DrawPoint(element_id,x,y,attr,scale) {
 function HashObjectColor(name) {
   // List of possible object colors:
   var objectColors = Array("#009900","#00ff00","#ccff00","#ffff00","#ffcc00","#ff9999","#cc0033","#ff33cc","#9933ff","#990099","#000099","#006699","#00ccff","#999900");
-  
+
   // Pseudo-randomized case insensitive hashing based on object name:
   var hash = 0;
   name = name.toUpperCase(); 
@@ -136,7 +136,13 @@ function HashObjectColor(name) {
   }
   hash = (((hash + 567) * 1048797) % objectColors.length);
   
-  return objectColors[hash];
+  if (name.indexOf('AR') > -1) {
+    return "#D2691E";
+  } else if (name.indexOf('TC') > -1) {
+    return "#DC143C";
+  } else {
+    return objectColors[hash];
+  }
 }
 
 // Fill the interior of a polygon.  Input is DOM element id.
