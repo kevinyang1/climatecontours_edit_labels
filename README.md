@@ -63,7 +63,7 @@ having to install or copy a large dataset onto their computers.
 5. Label your image.  Press "show me another image" to go to the next
    image in the folder.
 
-6. Voila!  Your annotations will appear at `climatecontours_edit_labels\submittedAnnotations\tmq`. This target can be changed in `climatecontours_edit_labels\annotationTools\perl\submit.cgi`
+6. Voila!  Your modified annotations will appear at `climatecontours_edit_labels\submittedAnnotations\tmq`. This target can be changed in `climatecontours_edit_labels\annotationTools\perl\submit.cgi`
 
 
 ### WEB SERVER START INSTRUCTIONS:
