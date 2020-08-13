@@ -122,7 +122,7 @@ http://127.0.0.1/climatecontours_edit_labels/tool.html.
   
   See bottom of right hand sidebar: user can choose between IVT, Vorticity, IWV, PSL... view for the single labeling task
   
-  To achieve this for your own layers, manually edit:
+  To achieve this for your own channels, manually edit:
   * `toggle_list` in `annotationTools/js/globals.js` 
   * Hard coded color bars stored in `Icons/`
   * Hard coded color bar references in `annotationTools/js/object_lists.js` func `GoesToChannels()`
